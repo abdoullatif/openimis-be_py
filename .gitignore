@@ -15,3 +15,6 @@ openIMIS/locale/en/LC_MESSAGES/django.mo
 **/staticfiles
 extracted_translations_fe
 script/config.py
+images/
+openIMIS/images/
+src/
