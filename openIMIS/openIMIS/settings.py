@@ -181,7 +181,6 @@ if os.environ.get("REMOTE_USER_AUTHENTICATION", "false").lower() == "true":
     AUTHENTICATION_BACKENDS += ["django.contrib.auth.backends.RemoteUserBackend"]
 
 AUTHENTICATION_BACKENDS += [
-    "axes.backends.AxesStandaloneBackend",
     "rules.permissions.ObjectPermissionBackend",
     "graphql_jwt.backends.JSONWebTokenBackend",
     "django.contrib.auth.backends.ModelBackend",
@@ -226,6 +225,8 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
 ]
+
+MODE = os.environ.get("MODE", "DEV")
 
 # Lockout mechanism configuration
 AXES_ENABLED = True if os.environ.get("MODE", "DEV") == "PROD" else False
@@ -296,6 +297,18 @@ GRAPHQL_JWT = {
         "core.schema.SetPasswordMutation",
     ],
 }
+
+if MODE == "DEV":
+    # Enhance security in production
+    GRAPHQL_JWT.update({
+        "JWT_COOKIE_SECURE": True,
+        "JWT_COOKIE_SAMESITE": "Lax",
+    })
+
+    CSRF_COOKIE_SECURE = True
+    CSRF_COOKIE_HTTPONLY = True
+    CSRF_COOKIE_SAMESITE = 'Lax'
+
 
 # no db
 DATABASES = {}
