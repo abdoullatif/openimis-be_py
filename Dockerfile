@@ -36,7 +36,7 @@ RUN python modules-requirements.py ../openimis.json > modules-requirements.txt &
 WORKDIR /openimis-be/openIMIS
 
 # Compile messages (Exclude zh_Hans)
-RUN NO_DATABASE=True python manage.py compilemessages -x zh_Hans
-RUN NO_DATABASE=True python manage.py collectstatic --clear --noinput
+# RUN NO_DATABASE=True python manage.py compilemessages -x zh_Hans
+# RUN NO_DATABASE=True python manage.py collectstatic --clear --noinput
 
 ENTRYPOINT ["/openimis-be/script/entrypoint.sh"]

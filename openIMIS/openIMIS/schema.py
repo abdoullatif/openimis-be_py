@@ -28,9 +28,8 @@ for app in all_apps:
             bind_signals.append(schema.schema.bind_signals)
             logger.debug(f"{app} signals bound")
     except ModuleNotFoundError as exc:
-        pass
         # The module doesn't have a schema.py, just skip
-        #logger.debug(f"{app} has no schema module, skipping")
+        logger.debug(f"{app} has no schema module, skipping")
     except AttributeError as exc:
         logger.debug(f"{app} queries couldn't be loaded")
         raise  # This can be hiding actual compilation errors
@@ -80,4 +79,3 @@ class GQLUserLanguageMiddleware:
 
 # noinspection PyTypeChecker
 schema = graphene.Schema(query=Query, mutation=Mutation if len(mutations) > 0 else None)
-
