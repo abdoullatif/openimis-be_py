@@ -22,4 +22,4 @@ openimis-dev.json
 !.idea/runConfigurations
 
 # Ensure all files in runConfigurations are included
-!.idea/runConfigurations/*
+# !.idea/runConfigurations/*
