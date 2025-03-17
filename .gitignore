@@ -19,7 +19,7 @@ script/config.py
 **/images/insurees
 openimis-dev.json
 # Except for the runConfigurations folder
-!.idea/runConfigurations
+# !.idea/runConfigurations
 
 # Ensure all files in runConfigurations are included
 !.idea/runConfigurations/*
