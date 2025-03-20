@@ -221,7 +221,6 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'core.middleware.GraphQLRateLimitMiddleware',
     "axes.middleware.AxesMiddleware",
-    "core.middleware.DefaultAxesAttributesMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",

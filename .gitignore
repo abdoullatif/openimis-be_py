@@ -23,3 +23,4 @@ openimis-dev.json
 
 # Ensure all files in runConfigurations are included
 !.idea/runConfigurations/*
+.qodo

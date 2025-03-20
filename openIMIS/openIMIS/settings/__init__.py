@@ -35,4 +35,3 @@ base_settings = [
 
 # Include the components
 include(*base_settings)
-
