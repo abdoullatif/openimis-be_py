@@ -59,3 +59,6 @@ password-validator==1.0
 django-axes==6.4.0
 
 twisted[http2,tls]
+
+# AIOHTTP
+aiohttp>=3.9.0
